@@ -1,0 +1,12 @@
+syntax = "proto3";
+package newsletter.newsletter;
+
+import "gogoproto/gogo.proto";
+import "newsletter/newsletter/params.proto";
+
+option go_package = "newsletter/x/newsletter/types";
+
+// GenesisState defines the newsletter module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}

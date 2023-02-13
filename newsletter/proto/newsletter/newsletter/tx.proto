@@ -1,0 +1,7 @@
+syntax = "proto3";
+package newsletter.newsletter;
+
+option go_package = "newsletter/x/newsletter/types";
+
+// Msg defines the Msg service.
+service Msg {}

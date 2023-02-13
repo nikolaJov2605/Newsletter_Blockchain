@@ -74952,6 +74952,8 @@ definitions:
     description: |-
       Version defines the versioning scheme used to negotiate the IBC verison in
       the connection handshake.
+  newsletter.newsletter.MsgCreateNewsletterResponse:
+    type: object
   newsletter.newsletter.Params:
     type: object
     description: Params defines the parameters for the module.

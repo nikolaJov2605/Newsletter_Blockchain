@@ -25,20 +25,13 @@ func (k msgServer) Subscribe(goCtx context.Context, msg *types.MsgSubscribe) (*t
 
 	buyer, _ := sdk.AccAddressFromBech32(msg.Creator)
 
-	owner, _ := sdk.AccAddressFromBech32(newsletter.Creator)
-
 	//_ = subscriptionPrice
 	//_ = buyer
 
-	err := k.bankKeeper.SendCoins(ctx, buyer, owner, subscriptionPrice)
-	if err != nil {
-		return nil, err
-	}
-
-	/*err := k.bankKeeper.SendCoinsFromAccountToModule(ctx, buyer, types.ModuleName, subscriptionPrice)
+	err := k.bankKeeper.SendCoinsFromAccountToModule(ctx, buyer, types.ModuleName, subscriptionPrice)
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "There is no enough funds on wallet")
-	}*/
+	}
 
 	newsletter.SubscriberList = append(newsletter.SubscriberList, msg.Creator)
 

@@ -1,0 +1,9 @@
+syntax = "proto3";
+package newsletter.newsletter;
+
+option go_package = "newsletter/x/newsletter/types";
+
+message NewsletterInfo {
+  uint64 nextId = 1; 
+  
+}

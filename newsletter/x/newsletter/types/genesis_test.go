@@ -25,9 +25,31 @@ func TestGenesisState_Validate(t *testing.T) {
 				NewsletterInfo: &types.NewsletterInfo{
 					NextId: 89,
 				},
+				NewsletterList: []types.Newsletter{
+					{
+						Index: "0",
+					},
+					{
+						Index: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
+		},
+		{
+			desc: "duplicated newsletter",
+			genState: &types.GenesisState{
+				NewsletterList: []types.Newsletter{
+					{
+						Index: "0",
+					},
+					{
+						Index: "0",
+					},
+				},
+			},
+			valid: false,
 		},
 		// this line is used by starport scaffolding # types/genesis/testcase
 	} {

@@ -17,6 +17,14 @@ func TestGenesis(t *testing.T) {
 		NewsletterInfo: &types.NewsletterInfo{
 			NextId: 65,
 		},
+		NewsletterList: []types.Newsletter{
+			{
+				Index: "0",
+			},
+			{
+				Index: "1",
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -29,5 +37,6 @@ func TestGenesis(t *testing.T) {
 	nullify.Fill(got)
 
 	require.Equal(t, genesisState.NewsletterInfo, got.NewsletterInfo)
+	require.ElementsMatch(t, genesisState.NewsletterList, got.NewsletterList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

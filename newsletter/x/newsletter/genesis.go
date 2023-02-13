@@ -12,6 +12,10 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	if genState.NewsletterInfo != nil {
 		k.SetNewsletterInfo(ctx, *genState.NewsletterInfo)
 	}
+	// Set all the newsletter
+	for _, elem := range genState.NewsletterList {
+		k.SetNewsletter(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -26,6 +30,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	if found {
 		genesis.NewsletterInfo = &newsletterInfo
 	}
+	genesis.NewsletterList = k.GetAllNewsletter(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

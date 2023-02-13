@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "newsletter/newsletter/params.proto";
 import "newsletter/newsletter/newsletter_info.proto";
+import "newsletter/newsletter/newsletter.proto";
 
 option go_package = "newsletter/x/newsletter/types";
 
@@ -24,6 +25,16 @@ service Query {
     option (google.api.http).get = "/newsletter/newsletter/newsletter_info";
   
   }
+  
+  // Queries a list of Newsletter items.
+  rpc Newsletter    (QueryGetNewsletterRequest) returns (QueryGetNewsletterResponse) {
+    option (google.api.http).get = "/newsletter/newsletter/newsletter/{index}";
+  
+  }
+  rpc NewsletterAll (QueryAllNewsletterRequest) returns (QueryAllNewsletterResponse) {
+    option (google.api.http).get = "/newsletter/newsletter/newsletter";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -39,5 +50,22 @@ message QueryGetNewsletterInfoRequest {}
 
 message QueryGetNewsletterInfoResponse {
   NewsletterInfo NewsletterInfo = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetNewsletterRequest {
+  string index = 1;
+}
+
+message QueryGetNewsletterResponse {
+  Newsletter newsletter = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllNewsletterRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllNewsletterResponse {
+  repeated Newsletter                             newsletter = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

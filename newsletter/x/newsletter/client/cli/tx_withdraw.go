@@ -3,18 +3,19 @@ package cli
 import (
 	"strconv"
 
+	"newsletter/x/newsletter/types"
+
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	"github.com/spf13/cobra"
-	"newsletter/x/newsletter/types"
 )
 
 var _ = strconv.Itoa(0)
 
 func CmdWithdraw() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "withdraw [title]",
+		Use:   "withdraw [id]",
 		Short: "Broadcast message withdraw",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {

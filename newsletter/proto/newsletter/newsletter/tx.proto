@@ -30,7 +30,7 @@ message MsgSubscribeResponse {}
 
 message MsgWithdraw {
   string creator = 1;
-  string title   = 2;
+  string id   = 2;
 }
 
 message MsgWithdrawResponse {}

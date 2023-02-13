@@ -9,10 +9,10 @@ const TypeMsgWithdraw = "withdraw"
 
 var _ sdk.Msg = &MsgWithdraw{}
 
-func NewMsgWithdraw(creator string, title string) *MsgWithdraw {
+func NewMsgWithdraw(creator string, id string) *MsgWithdraw {
 	return &MsgWithdraw{
 		Creator: creator,
-		Title:   title,
+		Id:      id,
 	}
 }
 

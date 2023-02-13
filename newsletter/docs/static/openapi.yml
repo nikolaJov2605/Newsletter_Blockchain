@@ -45298,6 +45298,9 @@ paths:
                     withdrawCount:
                       type: string
                       format: uint64
+                    subscriberCount:
+                      type: string
+                      format: uint64
               pagination:
                 type: object
                 properties:
@@ -45431,6 +45434,9 @@ paths:
                   creator:
                     type: string
                   withdrawCount:
+                    type: string
+                    format: uint64
+                  subscriberCount:
                     type: string
                     format: uint64
         default:
@@ -75208,6 +75214,9 @@ definitions:
       withdrawCount:
         type: string
         format: uint64
+      subscriberCount:
+        type: string
+        format: uint64
   newsletter.newsletter.NewsletterInfo:
     type: object
     properties:
@@ -75240,6 +75249,9 @@ definitions:
             creator:
               type: string
             withdrawCount:
+              type: string
+              format: uint64
+            subscriberCount:
               type: string
               format: uint64
       pagination:
@@ -75298,6 +75310,9 @@ definitions:
           creator:
             type: string
           withdrawCount:
+            type: string
+            format: uint64
+          subscriberCount:
             type: string
             format: uint64
   newsletter.newsletter.QueryParamsResponse:

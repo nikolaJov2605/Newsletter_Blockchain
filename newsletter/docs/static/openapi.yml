@@ -74954,6 +74954,8 @@ definitions:
       the connection handshake.
   newsletter.newsletter.MsgCreateNewsletterResponse:
     type: object
+  newsletter.newsletter.MsgSubscribeResponse:
+    type: object
   newsletter.newsletter.Params:
     type: object
     description: Params defines the parameters for the module.

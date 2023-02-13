@@ -7,6 +7,7 @@ option go_package = "newsletter/x/newsletter/types";
 // Msg defines the Msg service.
 service Msg {
   rpc CreateNewsletter (MsgCreateNewsletter) returns (MsgCreateNewsletterResponse);
+  rpc Subscribe        (MsgSubscribe       ) returns (MsgSubscribeResponse       );
 }
 message MsgCreateNewsletter {
   string creator     = 1;
@@ -16,4 +17,11 @@ message MsgCreateNewsletter {
 }
 
 message MsgCreateNewsletterResponse {}
+
+message MsgSubscribe {
+  string creator = 1;
+  string title   = 2;
+}
+
+message MsgSubscribeResponse {}
 

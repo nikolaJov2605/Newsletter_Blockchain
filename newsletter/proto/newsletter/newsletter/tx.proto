@@ -8,6 +8,7 @@ option go_package = "newsletter/x/newsletter/types";
 service Msg {
   rpc CreateNewsletter (MsgCreateNewsletter) returns (MsgCreateNewsletterResponse);
   rpc Subscribe        (MsgSubscribe       ) returns (MsgSubscribeResponse       );
+  rpc Withdraw         (MsgWithdraw        ) returns (MsgWithdrawResponse        );
 }
 message MsgCreateNewsletter {
   string creator     = 1;
@@ -24,4 +25,11 @@ message MsgSubscribe {
 }
 
 message MsgSubscribeResponse {}
+
+message MsgWithdraw {
+  string creator = 1;
+  string title   = 2;
+}
+
+message MsgWithdrawResponse {}
 

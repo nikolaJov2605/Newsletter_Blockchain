@@ -10,6 +10,7 @@ import (
 func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateNewsletter{}, "newsletter/CreateNewsletter", nil)
 	cdc.RegisterConcrete(&MsgSubscribe{}, "newsletter/Subscribe", nil)
+	cdc.RegisterConcrete(&MsgWithdraw{}, "newsletter/Withdraw", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -19,6 +20,9 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	)
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgSubscribe{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgWithdraw{},
 	)
 	// this line is used by starport scaffolding # 3
 

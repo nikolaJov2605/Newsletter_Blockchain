@@ -45293,6 +45293,11 @@ paths:
                       type: array
                       items:
                         type: string
+                    creator:
+                      type: string
+                    withdrawCount:
+                      type: string
+                      format: uint64
               pagination:
                 type: object
                 properties:
@@ -45423,6 +45428,11 @@ paths:
                     type: array
                     items:
                       type: string
+                  creator:
+                    type: string
+                  withdrawCount:
+                    type: string
+                    format: uint64
         default:
           description: An unexpected error response.
           schema:
@@ -75193,6 +75203,11 @@ definitions:
         type: array
         items:
           type: string
+      creator:
+        type: string
+      withdrawCount:
+        type: string
+        format: uint64
   newsletter.newsletter.NewsletterInfo:
     type: object
     properties:
@@ -75222,6 +75237,11 @@ definitions:
               type: array
               items:
                 type: string
+            creator:
+              type: string
+            withdrawCount:
+              type: string
+              format: uint64
       pagination:
         type: object
         properties:
@@ -75275,6 +75295,11 @@ definitions:
             type: array
             items:
               type: string
+          creator:
+            type: string
+          withdrawCount:
+            type: string
+            format: uint64
   newsletter.newsletter.QueryParamsResponse:
     type: object
     properties:

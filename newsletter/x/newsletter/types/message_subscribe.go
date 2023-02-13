@@ -9,10 +9,10 @@ const TypeMsgSubscribe = "subscribe"
 
 var _ sdk.Msg = &MsgSubscribe{}
 
-func NewMsgSubscribe(creator string, title string) *MsgSubscribe {
+func NewMsgSubscribe(creator string, id string) *MsgSubscribe {
 	return &MsgSubscribe{
 		Creator: creator,
-		Title:   title,
+		Id:      id,
 	}
 }
 

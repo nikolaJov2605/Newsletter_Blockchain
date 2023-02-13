@@ -25,6 +25,8 @@ func (k msgServer) CreateNewsletter(goCtx context.Context, msg *types.MsgCreateN
 		Description:    msg.Description,
 		Price:          msg.Price,
 		SubscriberList: make([]string, 0),
+		Creator:        msg.Creator,
+		WithdrawCount:  0,
 	}
 
 	k.Keeper.SetNewsletter(ctx, newNewsletter)

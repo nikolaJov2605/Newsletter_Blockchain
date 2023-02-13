@@ -106,6 +106,7 @@ import (
 	newslettermodule "newsletter/x/newsletter"
 	newslettermodulekeeper "newsletter/x/newsletter/keeper"
 	newslettermoduletypes "newsletter/x/newsletter/types"
+
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	appparams "newsletter/app/params"
@@ -170,14 +171,15 @@ var (
 
 	// module account permissions
 	maccPerms = map[string][]string{
-		authtypes.FeeCollectorName:     nil,
-		distrtypes.ModuleName:          nil,
-		icatypes.ModuleName:            nil,
-		minttypes.ModuleName:           {authtypes.Minter},
-		stakingtypes.BondedPoolName:    {authtypes.Burner, authtypes.Staking},
-		stakingtypes.NotBondedPoolName: {authtypes.Burner, authtypes.Staking},
-		govtypes.ModuleName:            {authtypes.Burner},
-		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
+		authtypes.FeeCollectorName:       nil,
+		distrtypes.ModuleName:            nil,
+		icatypes.ModuleName:              nil,
+		minttypes.ModuleName:             {authtypes.Minter},
+		stakingtypes.BondedPoolName:      {authtypes.Burner, authtypes.Staking},
+		stakingtypes.NotBondedPoolName:   {authtypes.Burner, authtypes.Staking},
+		govtypes.ModuleName:              {authtypes.Burner},
+		ibctransfertypes.ModuleName:      {authtypes.Minter, authtypes.Burner},
+		newslettermoduletypes.ModuleName: nil,
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -496,6 +498,7 @@ func New(
 	)
 
 	app.NewsletterKeeper = *newslettermodulekeeper.NewKeeper(
+		app.BankKeeper,
 		appCodec,
 		keys[newslettermoduletypes.StoreKey],
 		keys[newslettermoduletypes.MemStoreKey],

@@ -9,6 +9,8 @@ message Newsletter {
   string description = 3; 
   string price = 4; 
   repeated string subscriberList = 5;
+  string creator = 6;
+  uint64 withdrawCount = 7;
   
 }
 

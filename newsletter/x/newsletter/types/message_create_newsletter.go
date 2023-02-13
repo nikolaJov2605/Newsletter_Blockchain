@@ -9,7 +9,7 @@ const TypeMsgCreateNewsletter = "create_newsletter"
 
 var _ sdk.Msg = &MsgCreateNewsletter{}
 
-func NewMsgCreateNewsletter(creator string, title string, description string, price uint64) *MsgCreateNewsletter {
+func NewMsgCreateNewsletter(creator string, title string, description string, price string) *MsgCreateNewsletter {
 	return &MsgCreateNewsletter{
 		Creator:     creator,
 		Title:       title,

@@ -3,12 +3,12 @@ package cli
 import (
 	"strconv"
 
+	"newsletter/x/newsletter/types"
+
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
-	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
-	"newsletter/x/newsletter/types"
 )
 
 var _ = strconv.Itoa(0)
@@ -21,7 +21,7 @@ func CmdCreateNewsletter() *cobra.Command {
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argTitle := args[0]
 			argDescription := args[1]
-			argPrice, err := cast.ToUint64E(args[2])
+			argPrice := args[2]
 			if err != nil {
 				return err
 			}

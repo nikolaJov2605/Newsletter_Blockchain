@@ -12,7 +12,7 @@ option go_package = "newsletter/x/newsletter/types";
 // GenesisState defines the newsletter module's genesis state.
 message GenesisState {
            Params         params         = 1 [(gogoproto.nullable) = false];
-           NewsletterInfo newsletterInfo = 2;
+           NewsletterInfo newsletterInfo = 2 [(gogoproto.nullable) = false];
   repeated Newsletter     newsletterList = 3 [(gogoproto.nullable) = false];
 }
 

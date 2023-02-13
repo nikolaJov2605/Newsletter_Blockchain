@@ -45289,7 +45289,10 @@ paths:
                       type: string
                     price:
                       type: string
-                      format: uint64
+                    subscriberList:
+                      type: array
+                      items:
+                        type: string
               pagination:
                 type: object
                 properties:
@@ -45416,7 +45419,10 @@ paths:
                     type: string
                   price:
                     type: string
-                    format: uint64
+                  subscriberList:
+                    type: array
+                    items:
+                      type: string
         default:
           description: An unexpected error response.
           schema:
@@ -75165,6 +75171,9 @@ definitions:
       the connection handshake.
   newsletter.newsletter.MsgCreateNewsletterResponse:
     type: object
+    properties:
+      newsletterIndex:
+        type: string
   newsletter.newsletter.MsgSubscribeResponse:
     type: object
   newsletter.newsletter.MsgWithdrawResponse:
@@ -75180,7 +75189,10 @@ definitions:
         type: string
       price:
         type: string
-        format: uint64
+      subscriberList:
+        type: array
+        items:
+          type: string
   newsletter.newsletter.NewsletterInfo:
     type: object
     properties:
@@ -75206,7 +75218,10 @@ definitions:
               type: string
             price:
               type: string
-              format: uint64
+            subscriberList:
+              type: array
+              items:
+                type: string
       pagination:
         type: object
         properties:
@@ -75256,7 +75271,10 @@ definitions:
             type: string
           price:
             type: string
-            format: uint64
+          subscriberList:
+            type: array
+            items:
+              type: string
   newsletter.newsletter.QueryParamsResponse:
     type: object
     properties:

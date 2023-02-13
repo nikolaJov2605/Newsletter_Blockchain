@@ -3,8 +3,9 @@ package types_test
 import (
 	"testing"
 
-	"github.com/stretchr/testify/require"
 	"newsletter/x/newsletter/types"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestGenesisState_Validate(t *testing.T) {
@@ -22,7 +23,7 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
 
-				NewsletterInfo: &types.NewsletterInfo{
+				NewsletterInfo: types.NewsletterInfo{
 					NextId: 89,
 				},
 				NewsletterList: []types.Newsletter{

@@ -23,11 +23,11 @@ func networkWithNewsletterInfoObjects(t *testing.T) (*network.Network, types.New
 
 	newsletterInfo := &types.NewsletterInfo{}
 	nullify.Fill(&newsletterInfo)
-	state.NewsletterInfo = newsletterInfo
+	state.NewsletterInfo = *newsletterInfo
 	buf, err := cfg.Codec.MarshalJSON(&state)
 	require.NoError(t, err)
 	cfg.GenesisState[types.ModuleName] = buf
-	return network.New(t, cfg), *state.NewsletterInfo
+	return network.New(t, cfg), state.NewsletterInfo
 }
 
 func TestShowNewsletterInfo(t *testing.T) {

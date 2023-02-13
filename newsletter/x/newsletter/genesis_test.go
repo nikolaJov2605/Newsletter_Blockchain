@@ -3,18 +3,19 @@ package newsletter_test
 import (
 	"testing"
 
-	"github.com/stretchr/testify/require"
 	keepertest "newsletter/testutil/keeper"
 	"newsletter/testutil/nullify"
 	"newsletter/x/newsletter"
 	"newsletter/x/newsletter/types"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestGenesis(t *testing.T) {
 	genesisState := types.GenesisState{
 		Params: types.DefaultParams(),
 
-		NewsletterInfo: &types.NewsletterInfo{
+		NewsletterInfo: types.NewsletterInfo{
 			NextId: 65,
 		},
 		NewsletterList: []types.Newsletter{

@@ -36,6 +36,7 @@ func NewKeeper(
 	}
 
 	return &Keeper{
+		bankKeeper: bankKeeper,
 		cdc:        cdc,
 		storeKey:   storeKey,
 		memKey:     memKey,

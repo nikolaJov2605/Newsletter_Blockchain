@@ -34,13 +34,13 @@ func (k msgServer) Withdraw(goCtx context.Context, msg *types.MsgWithdraw) (*typ
 
 	owner, _ := sdk.AccAddressFromBech32(newsletter.Creator)
 
-	_ = coinsToWithdraw
-	_ = owner
+	//_ = coinsToWithdraw
+	//_ = owner
 
-	/*err := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, owner, coinsToWithdraw)
+	err := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, owner, coinsToWithdraw)
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "There is no enough funds on wallet")
-	}*/
+	}
 
 	newsletter.WithdrawCount += toWithdrawInt.Uint64()
 

@@ -6,5 +6,5 @@ option go_package = "newsletter/x/newsletter/types";
 message User {
   
   string address = 1; 
-  string subscriptionTitles = 2; 
+  repeated string subscriptionTitles = 2; 
 }

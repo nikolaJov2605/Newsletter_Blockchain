@@ -42,6 +42,12 @@ service Query {
     option (google.api.http).get = "/newsletter/newsletter/newsletters_basic";
   
   }
+  
+  // Queries a list of NewslettersByTitle items.
+  rpc NewslettersByTitle (QueryNewslettersByTitleRequest) returns (QueryNewslettersByTitleResponse) {
+    option (google.api.http).get = "/newsletter/newsletter/newsletters_by_title";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -81,7 +87,18 @@ message QueryNewslettersBasicRequest {
 }
 
 message QueryNewslettersBasicResponse {
-  repeated NewslettersBasic newsletters = 1 [(gogoproto.nullable) = false];
-  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+  repeated NewslettersBasic                       newsletters = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination  = 2;
+}
+
+message QueryNewslettersByTitleRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+  string title = 2;
+
+}
+
+message QueryNewslettersByTitleResponse {
+  Newsletter newsletter = 1 [(gogoproto.nullable) = false];
+
 }
 

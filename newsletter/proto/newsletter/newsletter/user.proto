@@ -1,0 +1,10 @@
+syntax = "proto3";
+package newsletter.newsletter;
+
+option go_package = "newsletter/x/newsletter/types";
+
+message User {
+  
+  string address = 1; 
+  string subscriptionTitles = 2; 
+}
